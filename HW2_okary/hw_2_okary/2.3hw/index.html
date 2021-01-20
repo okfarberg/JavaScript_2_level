@@ -15,45 +15,52 @@
 
         <div class="products">
             <div class='sizeBurger'>
-                <label for="bigburger"> <input name="size" type="radio" id='bigburger'>
+                <label for="bigburger"> <input class="staffing" name="size" type="radio" id='bigburger'>
                     Большой (100рублей, 40ккал)</label>
-                <label for="littleBurger"> <input name="size" type="radio" id="littleBurger">
+                <label for="littleBurger"> <input class="staffing" name="size" type="radio" id="littleBurger">
                     Маленький (50рублей, 20ккал)</label>
             </div>
 
             <div class="staffing">
                 <p>Выбрать начинку</p>
-                <p> <label for="toppingCheese"> <input class="staffing-1" value="11" name="staffing" type="radio"
+                <p> <label for="toppingCheese"> <input class="staffing" value="cheese" name="staffing" type="radio"
                             id='toppingCheese'>
                         С сыром (10рублей, 20ккал) </label></p>
-                <p><label for="toppingSalad"><input class="staffing-1" value="22" name="staffing" type="radio"
+                <p><label for="toppingSalad"><input class="staffing" value="salad" name="staffing" type="radio"
                             id='toppingSalad'>
                         С салатом (20рублей, 10ккал)</label></p>
-                <p> <label for="toppingPotato"><input class="staffing-1" value="33" name="staffing" type="radio"
+                <p> <label for="toppingPotato"><input class="staffing" value="potato" name="staffing" type="radio"
                             id='toppingPotato'>
                         С картофелем(15рублей, 10ккал)</label></p>
             </div>
 
             <div class="topping">
                 <p>Выбрать начинку</p>
-                <p><input type="checkbox" id='toppingSpice'>
+                <p><input type="checkbox" name="topings" id='toppingSpice' class="staffing" value="spice">
                     <label for="toppingSpice"> Добавить приправу (+10р, +0кк)</label></p>
-                <p><input type="checkbox" id='toppingMazik'>
-                    <label for="toppingMazik"> Добавить майонез (+20р, +5кк)</label></p>
+                <p><input type="checkbox" name="topings" id='toppingmayonez' class="staffing" value="mayonez">
+                    <label for="toppingmayonez"> Добавить майонез (+20р, +5кк)</label></p>
             </div>
 
-            <button class="btn-cart" type="button">Заказать</button>
+            <button id="btn-cart" type="button">Заказать</button>
+            <p id="result">Стоимость: <span id="price">0</span>
+                <br>Калорийность: <span id="calories">0</span></p>
 
 
 
         </div>
     </main>
 </body>
+<script src="burger.js"></script>
 <script>
-   
-//ПОГНАЛИ. Делаем ДЗ на чистовик.
-
-
+    //после загрузки страницы по клику на кнопку создай новый инстанс бургера
+    window.onload = () => {
+        document.getElementById('btn-cart').addEventListener('click', () => {
+            const hamb = new Burger('size', 'add', 'topings');
+            console.log(hamb);
+            hamb.showSum('#price', '#calories');
+        })
+    }
 </script>
 
 </html>

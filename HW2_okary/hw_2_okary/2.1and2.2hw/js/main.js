@@ -66,22 +66,14 @@ class ProductsList {
         this._fetchData();
         this._render();
     }
-        //стоимость всех товаров на странице, только это не работает(((( Ругается что нет никакого прайса
+        //стоимость всех товаров на странице
         sumAllProducts() {
             let sumAllProductsList = 0;
             console.log(this.products); //массив успешно выводится,в нем 4 продукта со всеми параметрами
-
- /*            for (let i=0; i<this.products.length; i++){
-                sumAllProductsList+= this.products[i].price;
-            }
-            console.log(this.sumAllProductsList); */
-
-            //пробовала и циклом let ..of но тоже неуспех(
-
                 for (let i of this.products) {
-                    sumAllProductsList+= this.products[i].price; 
+                    sumAllProductsList+= i.price; 
                 }
-                console.log(this.sumAllProductsList);
+                console.log(sumAllProductsList);
         }
 
        _fetchData() {
